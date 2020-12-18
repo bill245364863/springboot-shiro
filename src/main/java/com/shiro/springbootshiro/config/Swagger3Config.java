@@ -4,6 +4,8 @@ import com.shiro.springbootshiro.config.properties.SwaggerProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.oas.annotations.EnableOpenApi;
@@ -23,11 +25,31 @@ public class Swagger3Config {
     public Swagger3Config(SwaggerProperties swaggerProperties) {
         this.swaggerProperties = swaggerProperties;
     }
+
+    @Bean
+    public Docket docket1(){
+        return  new Docket(DocumentationType.OAS_30)
+                // 定义是否开启swagger，false为关闭，可以通过变量控制
+                .enable(swaggerProperties.getEnable())
+                .groupName("billA")
+                // 将api的元信息设置为包含在json ResourceListing响应中。
+                .apiInfo(apiInfo())
+                // 接口调试地址
+                .host(swaggerProperties.getTryHost())
+                // 选择哪些接口作为swagger的doc发布
+                .select()
+                //具体的包 或者具体的被注释的类
+                .apis(RequestHandlerSelectors.withMethodAnnotation(RequestMapping.class))
+                //请求
+                .paths(PathSelectors.ant("/login"))
+                .build();
+    }
     @Bean
     public Docket docket(){
         return  new Docket(DocumentationType.OAS_30)
                 // 定义是否开启swagger，false为关闭，可以通过变量控制
                 .enable(swaggerProperties.getEnable())
+                .groupName("bill")
                 // 将api的元信息设置为包含在json ResourceListing响应中。
                 .apiInfo(apiInfo())
                 // 接口调试地址

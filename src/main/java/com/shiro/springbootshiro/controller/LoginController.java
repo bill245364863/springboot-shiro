@@ -1,5 +1,8 @@
 package com.shiro.springbootshiro.controller;
 
+
+import com.shiro.springbootshiro.pojo.User;
+import io.swagger.annotations.ApiModel;
 import org.apache.catalina.security.SecurityUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -49,5 +52,9 @@ public class LoginController {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         return "index";
+    }
+    @RequestMapping("/user")
+    public User getUser(){
+        return new User();
     }
 }

@@ -10,7 +10,8 @@
 <!--<h1 th:text="${msg}"></h1>-->
 <hr >
 <a shiro:hasPermission="user:update"  th:href="@{/update.html}">update</a> |<a shiro:hasPermission="user:add" th:href="@{/add.html}">add</a>
-<hr>
+    <a th:href="@{/swagger-ui/}">swagger</a>
+    <hr>
 <!--    有登陆了就不能显示登陆，-->
     <shiro:notAuthenticated>
         <a th:href="@{/login.html}">login</a>
