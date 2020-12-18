@@ -60,6 +60,7 @@ public class ShiroConfig {
     public ShiroRealm shiroRealm() {
         return new ShiroRealm();
     }
+
     //整合shiroDialect ：用来整合thymeleaf
     @Bean
     public ShiroDialect getShiroDialect(){

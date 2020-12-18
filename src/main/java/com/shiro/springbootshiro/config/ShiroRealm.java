@@ -19,12 +19,13 @@ public class ShiroRealm extends AuthorizingRealm {
     //授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("授权=》doGetAuthorizationInfo");
+//        System.out.println("授权=》doGetAuthorizationInfo");
         //获取当前登陆对象
         Subject subject = SecurityUtils.getSubject();
         User currentUser = (User) subject.getPrincipal();//当前用户对象
 
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        //获取用户的权限
         authorizationInfo.addStringPermission(currentUser.getPerms());
         return authorizationInfo;
     }
@@ -32,7 +33,7 @@ public class ShiroRealm extends AuthorizingRealm {
     //认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        System.out.println("认证=》doGetAuthenticationInfo");
+//        System.out.println("认证=》doGetAuthenticationInfo");
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
         User user = userMapper.queryUserByName(usernamePasswordToken.getUsername());
         if(user == null){

@@ -23,7 +23,7 @@ public class LoginController {
      */
     @RequestMapping("/login")
     public String login(String username, String password, Model model){
-        System.out.println("login");
+//        System.out.println("login");
         //获取当前登陆用户
         Subject subject = SecurityUtils.getSubject();
         //封装用户的登陆数据

@@ -1,4 +1,8 @@
+
 spring:
+
+  application:
+    name: springboot-swagger
   datasource:
     username: root
     password: root
@@ -57,3 +61,11 @@ spring:
 mybatis:
   type-aliases-package: com.shiro.springbootshiro.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
+server:
+  port: 8081
