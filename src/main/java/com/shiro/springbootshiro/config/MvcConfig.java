@@ -2,7 +2,6 @@ package com.shiro.springbootshiro.config;
 
 import com.shiro.springbootshiro.config.properties.SwaggerProperties;
 import io.swagger.models.auth.In;
-import org.apache.commons.lang.reflect.FieldUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -58,6 +58,11 @@ spring:
         # 24表示，前面24位是子网掩码，比对的时候，前面24位相同就匹配,不支持IPV6。
         allow: 192.168.40.38
         deny:
+  mail:
+    username: 245364863@qq.com
+    password: mxtpuetvmvhnbhch
+    host: smtp.qq.com
+    properties.mail.smtp.ssl.enable: true
 mybatis:
   type-aliases-package: com.shiro.springbootshiro.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
