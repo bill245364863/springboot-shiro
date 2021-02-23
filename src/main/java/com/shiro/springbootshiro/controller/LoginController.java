@@ -29,6 +29,12 @@ public class LoginController {
 //        System.out.println("login");
         //获取当前登陆用户
         Subject subject = SecurityUtils.getSubject();
+
+//        将登陆输入的数据封装到UsernamePasswordToken里面，调用login里面去调用shirorealm的认证方法
+//        认证方法会使用这个usernamepasswordtoken获取到username，使用username去查找对应的用户信息
+//        把用户信息封装到认证对象里面（AuthenticationInfo），之后比对info以及token的认证标识（密码）
+//        如果两个认证不一致就代表登陆密码错误，抛出IncorrectCredentialsException异常
+
         //封装用户的登陆数据
         UsernamePasswordToken token = new UsernamePasswordToken(username,password);
 

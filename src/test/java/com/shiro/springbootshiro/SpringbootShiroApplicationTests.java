@@ -31,9 +31,11 @@ class SpringbootShiroApplicationTests {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage,true);
         mimeMessageHelper.setFrom("245364863@qq.com");
-        mimeMessageHelper.setTo("245364863@qq.com");
+        mimeMessageHelper.setTo("1764046286@qq.com");
         mimeMessageHelper.addAttachment("bill.jpg", new File("C:\\Users\\bill\\Pictures\\Camera Roll\\123.jpg"));
-        mimeMessageHelper.setText("<h2 style='color:red'>hello ,bill-比尔</h2>",true);
+        mimeMessageHelper.addAttachment("bill2.jpg", new File("C:\\Users\\bill\\Pictures\\Camera Roll\\17.jpg"));
+
+        mimeMessageHelper.setText("<h2 style='color:red'>hello ,i send mail  in java code for you,you know?</h2>",true);
         mimeMessageHelper.setSubject("bill's mail");
         mailSender.send(mimeMessage);
     }
